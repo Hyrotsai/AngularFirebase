@@ -1,0 +1,75 @@
+<div class="container-fluid">
+
+    <div class="d-flex flex-column align-items-center justify-content-center text-center" style="height: 450px;">
+        <div class="col-auto">
+            <h1>Formulario Test Angular</h1>
+        </div>
+        <div class="col-auto ">
+            <form (ngSubmit)="enviarFormulario(datosForm.value)" [formGroup]="datosForm">
+
+                <div class="">
+                    <label>Nombre</label>
+                    <input type=" text" placeholder="Digite su nombre" formControlName="nombre">
+                </div>
+
+                <div class=""
+                    *ngIf="datosForm.controls['nombre'].errors?.['required'] && datosForm.controls['nombre'].touched">
+                    <label class="text-danger">Nombre es requerido.</label>
+                </div>
+
+                <div class=""
+                    *ngIf="datosForm.controls['nombre'].errors?.['minlength'] && datosForm.controls['nombre'].touched">
+                    <label class="text-danger">Nombre debe tener minimo 3 caracteres.</label>
+                </div>
+
+                <div class=""
+                    *ngIf="datosForm.controls['nombre'].errors?.['pattern'] && !datosForm.controls['nombre'].errors?.['minlength']">
+                    <label class="text-danger">Tu nombre contiene numeros?</label>
+                </div>
+
+                <div>
+                    <label> Apellido</label>
+                    <input type="text" placeholder="Digite su Apellido" formControlName="apellido">
+                </div>
+
+                <div class=""
+                    *ngIf="datosForm.controls['apellido'].errors?.['required'] && datosForm.controls['apellido'].touched">
+                    <label class="text-danger">Apellido es requerido.</label>
+                </div>
+
+                <div class=""
+                    *ngIf="datosForm.controls['apellido'].errors?.['minlength'] && datosForm.controls['apellido'].touched">
+                    <label class="text-danger">Apellido debe tener minimo 3 caracteres.</label>
+                </div>
+
+                <div class=""
+                    *ngIf="datosForm.controls['apellido'].errors?.['pattern'] && !datosForm.controls['apellido'].errors?.['minlength']">
+                    <label class="text-danger">Tu apellido contiene numeros?</label>
+                </div>
+                <br>
+                <div class="">
+                    <input class="btn btn-primary" type="submit" value="Enviar" [disabled]="datosForm.invalid">
+                    <input class="btn btn-secondary" type="reset" value="Limpiar">
+                </div>
+
+            </form>
+            <br>
+            <button class="btn btn-info" routerLink="/person-list">Ver lista</button>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container-fluid">
+    <div class="test d-flex align-items-center justify-content-center ">
+        <div class="col-2 bg-danger">Elemento 1</div>
+        <div class="col-2 bg-primary">Elemento 2</div>
+        <div class="col-2 bg-info ">Elemento 3</div>
+    </div>
+    <div class="">
+        <div class="w-25 p-1" style="background-color: blue;">Width 25%</div>
+        <div class="w-50 p-2" style="background-color: #eee;">Width 50%</div>
+        <div class="w-75 p-3" style="background-color: #eee;">Width 75%</div>
+        <div class="w-100 p-4" style="background-color: green;">Width 100%</div>
+        <div class="w-auto p-5" style="background-color: yellow;">Width auto</div>
+    </div>
+</div> -->

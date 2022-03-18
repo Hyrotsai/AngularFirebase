@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angularprueba-fb083": {
+      "hosting": {
+        "AngularFomulario": [
+          "angularprueba-fb083"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angularprueba-fb083"
+  }
+}
