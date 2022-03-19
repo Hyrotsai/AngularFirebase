@@ -17,8 +17,8 @@ export class PersonFormComponent implements OnInit {
   // });
 
   public datosForm = this.fb.group({
-    nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
-    apellido: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]]
+    nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[A-zÀ-ú]*')]],
+    apellido: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[A-zÀ-ú]*')]]
   });
 
   constructor(
