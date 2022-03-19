@@ -17,8 +17,8 @@ export class PersonFormComponent implements OnInit {
   // });
 
   public datosForm = this.fb.group({
-    nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[A-zÀ-ú]*')]],
-    apellido: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[A-zÀ-ú]*')]]
+    nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[A-z À-ú]*')]],
+    apellido: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[A-z À-ú]*')]]
   });
 
   constructor(
@@ -31,7 +31,9 @@ export class PersonFormComponent implements OnInit {
   }
 
   enviarFormulario(data: any) {
+    data.apellido = data.apellido.trim()
     data.apellido = data.apellido.charAt(0).toUpperCase() + data.apellido.slice(1).toLowerCase()
+    data.nombre = data.nombre.trim()
     data.nombre = data.nombre.charAt(0).toUpperCase() + data.nombre.slice(1).toLowerCase()
     this.firestore.createPerson(data)
     this.datosForm.setValue({
